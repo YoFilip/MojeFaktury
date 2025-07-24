@@ -26,7 +26,7 @@ function Hero() {
           {/* Heading + dynamic word */}
           <div className="flex gap-4 flex-col">
             <h1 className="text-4xl xl:text-7xl max-w-4xl tracking-tighter text-center font-regular">
-              <span className="text-spektr-cyan-50 ">
+              <span className="text-spektr-cyan-50 font-kalam ">
                 Invoice processing made
               </span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
@@ -34,7 +34,7 @@ function Hero() {
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute font-semibold text-accent"
+                    className="absolute font-semibold text-accent font-kalam"
                     initial={{ opacity: 0, y: "-100" }}
                     transition={{ type: "spring", stiffness: 40 }}
                     animate={
@@ -53,7 +53,7 @@ function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="text-sm xl:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-sm xl:max-w-2xl text-center p-2 xl:p-5">
+            <p className="font-kalam text-sm xl:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-sm xl:max-w-2xl text-center p-2 xl:p-5">
               Stop wasting hours on manual invoice data entry. MojeFaktury
               extracts key data fields from invoices using AI and lets you
               export everything to Excel or CSV in seconds.
