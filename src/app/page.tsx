@@ -1,13 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Header } from "@/components/ui/header";
+import { Hero } from "@/components/ui/hero";
+import { Tiles } from "@/components/ui/tiles";
+import { SliderSection } from "@/components/ui/slider";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <Link href="/login">
-        <Button variant="secondary">Login</Button>
-      </Link>
-    </div>
+    <>
+      <Header />
+      <Hero />
+      <SliderSection />
+    </>
   );
 }

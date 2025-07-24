@@ -3,6 +3,35 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Slider animations */
+@keyframes slider {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slider-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-slider {
+  animation: slider var(--duration) linear infinite;
+  width: max-content;
+}
+
+.animate-slider-reverse {
+  animation: slider-reverse var(--duration) linear infinite;
+  width: max-content;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
