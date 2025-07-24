@@ -4,13 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MoveRight, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 function Hero() {
+  const t = useTranslations("hero");
   const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["automated", "secure", "intelligent", "simple", "smart"],
-    []
-  );
+  const titles = useMemo(() => t.raw("titleWords") as string[], [t]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -27,7 +26,7 @@ function Hero() {
           <div className="flex gap-4 flex-col">
             <h1 className="text-4xl xl:text-7xl max-w-4xl tracking-tighter text-center font-regular">
               <span className="text-spektr-cyan-50 font-kalam ">
-                Invoice processing made
+                {t("title")}
               </span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
@@ -54,9 +53,7 @@ function Hero() {
 
             {/* Description */}
             <p className="font-kalam text-sm xl:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-sm xl:max-w-2xl text-center p-2 xl:p-5">
-              Stop wasting hours on manual invoice data entry. MojeFaktury
-              extracts key data fields from invoices using AI and lets you
-              export everything to Excel or CSV in seconds.
+              {t("description")}
             </p>
           </div>
 
@@ -64,12 +61,12 @@ function Hero() {
           <div className="flex flex-row gap-4">
             <Button size="lg" className="gap-3" variant="outline" asChild>
               <a href="/dashboard">
-                Go to dashboard <Gauge className="w-4 h-4" />
+                {t("goToDashboard")} <Gauge className="w-4 h-4" />
               </a>
             </Button>
             <Button size="lg" className="gap-3" asChild>
               <a href="/signup">
-                Start for free <MoveRight className="w-4 h-4" />
+                {t("startForFree")} <MoveRight className="w-4 h-4" />
               </a>
             </Button>
           </div>

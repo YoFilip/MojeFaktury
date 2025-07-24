@@ -13,37 +13,39 @@ import { LanguageSelect } from "@/components/ui/languageSelect";
 import { Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 function Header() {
+  const t = useTranslations("navigation");
   const navigationItems = [
     {
-      title: "Home",
+      title: t("home"),
       href: "/",
-      description: "Smart OCR for invoices and documents.",
+      description: t("aboutUsDescription"),
     },
     {
-      title: "About Us",
+      title: t("aboutUs"),
       href: "/",
-      description: "Learn more about the team behind MojeFaktury.",
+      description: t("aboutUsDescription"),
     },
     {
-      title: "Products",
-      description: "All the tools you need to simplify your invoice workflow.",
+      title: t("products"),
+      description: t("productsDescription"),
       items: [
         {
-          title: "Smart OCR",
+          title: t("smartOcr"),
           href: "/",
         },
         {
-          title: "Data Extraction",
+          title: t("dataExtraction"),
           href: "/",
         },
         {
-          title: "Export to CSV/Excel",
+          title: t("exportToCsv"),
           href: "/",
         },
         {
-          title: "Invoice History",
+          title: t("invoiceHistory"),
           href: "/",
         },
       ],
@@ -82,7 +84,7 @@ function Header() {
                               </p>
                             </div>
                             <Button size="sm" className="mt-10">
-                              Get started
+                              {t("getStarted")}
                             </Button>
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
@@ -115,9 +117,9 @@ function Header() {
           <LanguageSelect className="hidden md:flex" />
           <div className="border-r hidden md:inline"></div>
           <Link href="/login" className="hidden xl:inline">
-            <Button variant="outline">Sign in</Button>
+            <Button variant="outline">{t("signIn")}</Button>
           </Link>
-          <Button className="hidden xl:inline">Get started</Button>
+          <Button className="hidden xl:inline">{t("getStarted")}</Button>
         </div>
         <div className="flex w-12 shrink lg:hidden items-end justify-end">
           <Button
@@ -194,12 +196,12 @@ function Header() {
                           variant="outline"
                           className="w-full justify-between"
                         >
-                          Sign in
+                          {t("signIn")}
                           <MoveRight className="w-4 h-4" />
                         </Button>
                       </Link>
                       <Button className="w-full justify-between">
-                        Get started
+                        {t("getStarted")}
                         <MoveRight className="w-4 h-4" />
                       </Button>
                     </div>

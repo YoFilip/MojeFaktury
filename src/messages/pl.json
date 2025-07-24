@@ -1,0 +1,39 @@
+{
+  "LocaleSwitcher": { "label": "Wybierz język" },
+  "navigation": {
+    "home": "Strona główna",
+    "aboutUs": "O nas",
+    "aboutUsDescription": "Dowiedz się więcej o zespole stojącym za MojeFaktury.",
+    "products": "Produkty",
+    "productsDescription": "Wszystkie narzędzia potrzebne do uproszczenia obsługi faktur.",
+    "smartOcr": "Inteligentne OCR",
+    "dataExtraction": "Wydobywanie danych",
+    "exportToCsv": "Eksport do CSV/Excel",
+    "invoiceHistory": "Historia faktur",
+    "signIn": "Zaloguj się",
+    "getStarted": "Rozpocznij"
+  },
+  "hero": {
+    "title": "Przetwarzanie faktur jest",
+    "titleWords": ["zautomatyzowane", "bezpieczne", "inteligentne", "proste"],
+    "description": "Przestań tracić godziny na ręczne wprowadzanie danych z faktur. MojeFaktury wydobywa kluczowe pola danych z faktur za pomocą AI i pozwala wyeksportować wszystko do Excela lub CSV w kilka sekund.",
+    "goToDashboard": "Przejdź do panelu",
+    "startForFree": "Zacznij za darmo"
+  },
+  "description": {
+    "longText": "MojeFaktury to inteligentna platforma SaaS, która usprawnia przetwarzanie faktur przy użyciu zaawansowanej technologii OCR (Optyczne Rozpoznawanie Znaków). Stworzona dla freelancerów, księgowych i małych firm, pozwala na łatwe przesyłanie faktur w formatach PDF lub obrazów i automatyczne wydobywanie kluczowych danych, takich jak informacje o sprzedawcy i kupującym, numer faktury, daty wystawienia, sumy, VAT i pozycje szczegółowe. Przetworzone dane można przeglądać, edytować i eksportować bezpośrednio do plików Excel lub CSV — gotowe do użycia w oprogramowaniu księgowym lub raportach. Platforma jest w pełni chmurowa, szybka i nie wymaga instalacji ani konfiguracji. Dzięki MojeFaktury eliminujesz ręczne wprowadzanie danych, redukujesz błędy, oszczędzasz cenny czas i zyskujesz pełną kontrolę nad przepływem pracy z fakturami. To niezbędne narzędzie dla każdego, kto chce zautomatyzować powtarzalne zadania i skupić się na rozwoju swojego biznesu."
+  },
+  "login": {
+    "title": "Zaloguj się do MojeFaktury",
+    "subtitle": "Zarządzaj swoimi fakturami i kontem w jednym miejscu.",
+    "emailLabel": "Adres e-mail",
+    "emailPlaceholder": "twoj@email.com",
+    "passwordLabel": "Hasło",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "signInButton": "Zaloguj się",
+    "orSignInUsing": "Lub zaloguj się używając:",
+    "signInWithGoogle": "Zaloguj się przez Google",
+    "noAccount": "Nie masz jeszcze konta?",
+    "createAccount": "Utwórz konto za darmo"
+  }
+}

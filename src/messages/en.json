@@ -1,0 +1,39 @@
+{
+  "LocaleSwitcher": { "label": "Select language" },
+  "navigation": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "aboutUsDescription": "Learn more about the team behind MojeFaktury.",
+    "products": "Products",
+    "productsDescription": "All the tools you need to simplify your invoice workflow.",
+    "smartOcr": "Smart OCR",
+    "dataExtraction": "Data Extraction",
+    "exportToCsv": "Export to CSV/Excel",
+    "invoiceHistory": "Invoice History",
+    "signIn": "Sign in",
+    "getStarted": "Get started"
+  },
+  "hero": {
+    "title": "Invoice processing made",
+    "titleWords": ["automated", "secure", "intelligent", "simple", "smart"],
+    "description": "Stop wasting hours on manual invoice data entry. MojeFaktury extracts key data fields from invoices using AI and lets you export everything to Excel or CSV in seconds.",
+    "goToDashboard": "Go to dashboard",
+    "startForFree": "Start for free"
+  },
+  "description": {
+    "longText": "MojeFaktury is an intelligent SaaS platform that streamlines invoice processing using advanced OCR (Optical Character Recognition) technology. Built for freelancers, accountants, and small businesses, it lets you easily upload invoices in PDF or image formats and automatically extracts key data such as seller and buyer info, invoice number, issue dates, totals, VAT, and itemized rows. Parsed data can be reviewed, edited, and exported directly to Excel or CSV files — ready for use in accounting software or reports. The platform is fully cloud-based, fast, and requires no installation or setup. With MojeFaktury, you eliminate manual data entry, reduce errors, save valuable time, and gain full control over your invoicing workflow. It's an essential tool for anyone looking to automate repetitive tasks and focus on growing their business."
+  },
+  "login": {
+    "title": "Sign in to MojeFaktury",
+    "subtitle": "Manage your invoices and account in one place.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgot your password?",
+    "signInButton": "Sign in",
+    "orSignInUsing": "Or sign in using:",
+    "signInWithGoogle": "Sign in with Google",
+    "noAccount": "Don't have an account yet?",
+    "createAccount": "Create one for free"
+  }
+}

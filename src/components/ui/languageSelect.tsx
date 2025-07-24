@@ -1,4 +1,11 @@
+"use client";
+
 import * as React from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { setUserLocale } from "@/lib/locale";
+import { locales, type Locale } from "@/i18n/config";
+import { useTransition } from "react";
+import { useRouter } from "next/navigation";
 
 import {
   Select,
@@ -11,26 +18,51 @@ import {
 } from "@/components/ui/select";
 
 export function LanguageSelect({ className }: { className?: string }) {
+  const t = useTranslations("LocaleSwitcher");
+  const locale = useLocale();
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+
+  const handleLocaleChange = (newLocale: string) => {
+    const selectedLocale = newLocale as Locale;
+    startTransition(async () => {
+      try {
+        await setUserLocale(selectedLocale);
+        router.refresh();
+      } catch (error) {
+        console.error("Failed to change locale:", error);
+      }
+    });
+  };
+
+  const getLanguageLabel = (locale: string) => {
+    switch (locale) {
+      case "pl":
+        return "PL - Polski";
+      case "en":
+        return "EN - English";
+      default:
+        return "EN - English";
+    }
+  };
+
   return (
-    <Select defaultValue="en">
+    <Select
+      defaultValue={locale}
+      onValueChange={handleLocaleChange}
+      disabled={isPending}
+    >
       <SelectTrigger className={`w-[150px] ${className || ""}`}>
-        <SelectValue placeholder="EN - English" />
+        <SelectValue placeholder={getLanguageLabel(locale)} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Languages</SelectLabel>
-          <SelectItem value="pl">PL - Polski</SelectItem>
-          <SelectItem value="en">EN - English</SelectItem>
-          <SelectItem value="es">ES - Español</SelectItem>
-          <SelectItem value="fr">FR - Français</SelectItem>
-          <SelectItem value="de">DE - Deutsch</SelectItem>
-          <SelectItem value="it">IT - Italiano</SelectItem>
-          <SelectItem value="pt">PT - Português</SelectItem>
-          <SelectItem value="ru">RU - Русский</SelectItem>
-          <SelectItem value="zh">ZH - 中文</SelectItem>
-          <SelectItem value="ja">JP - 日本語</SelectItem>
-          <SelectItem value="ko">KR - 한국어</SelectItem>
-          <SelectItem value="ar">AR - العربية</SelectItem>
+          <SelectLabel>{t("label")}</SelectLabel>
+          {locales.map((loc) => (
+            <SelectItem key={loc} value={loc}>
+              {getLanguageLabel(loc)}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>
