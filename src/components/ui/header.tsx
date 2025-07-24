@@ -9,6 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigationMenu";
+import { LanguageSelect } from "@/components/ui/languageSelect";
 import { Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
@@ -111,9 +112,7 @@ function Header() {
           </p>
         </div>
         <div className="flex justify-end w-full gap-4">
-          <Button variant="outline" className="hidden md:inline">
-            Book a demo
-          </Button>
+          <LanguageSelect className="hidden md:flex" />
           <div className="border-r hidden md:inline"></div>
           <Link href="/login" className="hidden xl:inline">
             <Button variant="outline">Sign in</Button>
@@ -134,6 +133,7 @@ function Header() {
               <div className="fixed top-20 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl z-40 overflow-y-auto">
                 <div className="container mx-auto py-6 px-4">
                   <div className="flex flex-col gap-6">
+                    <LanguageSelect className="w-full" />
                     {navigationItems.map((item) => (
                       <div
                         key={item.title}
