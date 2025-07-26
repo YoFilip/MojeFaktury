@@ -34,6 +34,22 @@
     "orSignInUsing": "Or sign in using:",
     "signInWithGoogle": "Sign in with Google",
     "noAccount": "Don't have an account yet?",
-    "createAccount": "Create one for free"
+    "createAccount": "Create one for free",
+    "sidebarTitle": "Automate your accounting",
+    "sidebarDescription": "Save time with automatic invoice data extraction."
+  },
+  "cards": {
+    "title1": "Quick Invoice Upload",
+    "description1": "Drag & drop your PDF, JPG, or PNG invoices in seconds. No installation required – just upload and get instant data extraction.",
+    "title2": "Smart Invoice Dashboard",
+    "description2": "Easily manage, filter, and organize all your invoices in one place. Get full visibility into your billing history and streamline your document flow.",
+    "title3": "Seamless Data Export",
+    "description3": "Transfer structured invoice data effortlessly to Excel (XLSX) or CSV formats for use in accounting tools, reports, or backups.",
+    "title4": "Bank-Grade Data Security",
+    "description4": "All data is encrypted and stored securely in the cloud. MojeFaktury follows strict GDPR standards for privacy and compliance.",
+    "title5": "Integration-Ready",
+    "description5": "Built with scalability in mind — MojeFaktury will soon offer API access and accounting integrations to fit your existing workflow.",
+    "sectionTitle": "Smart tools for smarter invoicing.",
+    "sectionDescription": "MojeFaktury helps you work faster and more accurately by simplifying invoice workflows. Upload, review, organize, and export — all in one secure platform tailored for freelancers, accountants, and growing businesses."
   }
 }

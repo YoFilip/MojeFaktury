@@ -1,21 +1,26 @@
 "use client";
 
+import React from "react";
+import { useTranslations } from "next-intl";
 import { Header } from "@/components/ui/header";
 import { Hero } from "@/components/ui/hero";
-import { Tiles } from "@/components/ui/tiles";
 import { SliderSection } from "@/components/ui/slider";
 import { TextGradientScroll } from "@/components/ui/scrollText";
-import { useTranslations } from "next-intl";
+import { Cards } from "@/components/ui/cards";
 
-export default function Home() {
+const Home = React.memo(() => {
   const t = useTranslations("description");
 
   return (
-    <>
+    <main role="main">
       <Header />
       <Hero />
       <SliderSection />
-      <div className="w-full py-0 xl:py-30">
+
+      <section
+        className="w-full py-0 xl:py-30 mb-20"
+        aria-labelledby="description-section"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-8xl mx-auto flex justify-center items-center">
             <TextGradientScroll
@@ -24,8 +29,13 @@ export default function Home() {
             />
           </div>
         </div>
-      </div>
-      <div className="h-[100vh]" aria-hidden="true" />
-    </>
+      </section>
+
+      <Cards />
+    </main>
   );
-}
+});
+
+Home.displayName = "Home";
+
+export default Home;

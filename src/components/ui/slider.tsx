@@ -135,16 +135,16 @@ const Logos = {
   ),
 };
 
-export function SliderSection() {
-  const logos = [Logos.tailwindcss, Logos.framer, Logos.nextjs, Logos.aws];
+const LOGOS = [Logos.tailwindcss, Logos.framer, Logos.nextjs, Logos.aws];
 
+export const SliderSection = React.memo(function SliderSection() {
   return (
     <section className="w-full py-20 xl:py-30">
       <div className="container mx-auto">
-        <Slider pauseOnHover={true} speed={30} className="py-4">
-          {logos.map((Logo, index) => (
+        <Slider pauseOnHover speed={30} className="py-4">
+          {LOGOS.map((Logo, idx) => (
             <div
-              key={index}
+              key={Logo.displayName || idx}
               className="relative h-full w-fit mx-[2rem] xl:mx-[4rem] flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
             >
               <Logo />
@@ -154,4 +154,6 @@ export function SliderSection() {
       </div>
     </section>
   );
-}
+});
+
+SliderSection.displayName = "SliderSection";

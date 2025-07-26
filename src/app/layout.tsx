@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Kalam, Geist_Mono } from "next/font/google";
+import { Kalam } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { getUserLocale } from "@/lib/locale";
@@ -9,6 +9,8 @@ const kalam = Kalam({
   variable: "--font-kalam",
   subsets: ["latin"],
   weight: ["300", "400", "700"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -23,6 +25,8 @@ export const metadata: Metadata = {
     "eksport do CSV",
     "fakturowanie",
     "odczyt PDF faktura",
+    "księgowość online",
+    "digitalizacja dokumentów",
   ],
   authors: [
     {
@@ -30,9 +34,15 @@ export const metadata: Metadata = {
       url: "https://yofilip.github.io/PortfolioWebsite/",
     },
   ],
+  creator: "Filip Świątek",
+  publisher: "MojeFaktury",
   metadataBase: new URL("https://mojefaktury.com"),
   alternates: {
     canonical: "https://mojefaktury.com",
+    languages: {
+      "pl-PL": "https://mojefaktury.com/pl",
+      "en-US": "https://mojefaktury.com/en",
+    },
   },
   openGraph: {
     title: "MojeFaktury – OCR faktur online",
@@ -42,6 +52,21 @@ export const metadata: Metadata = {
     siteName: "MojeFaktury",
     locale: "pl_PL",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MojeFaktury - Automatyczne OCR faktur",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MojeFaktury – OCR faktur online",
+    description:
+      "Automatyzacja księgowości dzięki OCR faktur. Skanuj, odczytuj, eksportuj.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -49,21 +74,41 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
+  category: "Business Software",
 };
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface RootLayoutProps {
+  readonly children: React.ReactNode;
+}
+
+export default async function RootLayout({ children }: RootLayoutProps) {
   const locale = await getUserLocale();
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale}>
-      <body className={`${kalam.variable} antialiased`}>
+    <html lang={locale} className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+      </head>
+      <body
+        className={`${kalam.variable} antialiased min-h-screen bg-white dark:bg-black`}
+        suppressHydrationWarning
+      >
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

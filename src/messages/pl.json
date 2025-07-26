@@ -34,6 +34,22 @@
     "orSignInUsing": "Lub zaloguj się używając:",
     "signInWithGoogle": "Zaloguj się przez Google",
     "noAccount": "Nie masz jeszcze konta?",
-    "createAccount": "Utwórz konto za darmo"
+    "createAccount": "Utwórz konto za darmo",
+    "sidebarTitle": "Zautomatyzuj swoją księgowość",
+    "sidebarDescription": "Oszczędzaj czas dzięki automatycznemu odczytowi danych z faktur."
+  },
+  "cards": {
+    "title1": "Szybkie przesyłanie faktur",
+    "description1": "Przeciągnij i upuść faktury w formacie PDF, JPG lub PNG. Bez instalacji – tylko wgraj i uzyskaj natychmiastowy odczyt danych.",
+    "title2": "Inteligentny panel faktur",
+    "description2": "Zarządzaj fakturami w jednym miejscu – sortuj, filtruj i przeglądaj z pełnym wglądem w historię rozliczeń i dokumentów.",
+    "title3": "Bezproblemowy eksport danych",
+    "description3": "Łatwo przenoś dane do plików Excel (XLSX) lub CSV i używaj ich w systemach księgowych, raportach lub backupach.",
+    "title4": "Bezpieczeństwo na poziomie bankowym",
+    "description4": "Wszystkie dane są szyfrowane i bezpiecznie przechowywane w chmurze. MojeFaktury działa zgodnie z wymogami RODO.",
+    "title5": "Gotowe na integracje",
+    "description5": "MojeFaktury powstaje z myślą o łatwym skalowaniu – już wkrótce dostęp do API i integracje z programami księgowymi.",
+    "sectionTitle": "Inteligentne narzędzia do nowoczesnej księgowości.",
+    "sectionDescription": "MojeFaktury przyspiesza i porządkuje pracę z fakturami. Wgrywaj, przeglądaj, organizuj i eksportuj – wszystko w jednej bezpiecznej aplikacji stworzonej dla freelancerów, księgowych i małych firm."
   }
 }

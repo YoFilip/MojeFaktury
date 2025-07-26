@@ -15,42 +15,35 @@ import { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-function Header() {
+import React, { useMemo } from "react";
+
+const Header = React.memo(function Header() {
   const t = useTranslations("navigation");
-  const navigationItems = [
-    {
-      title: t("home"),
-      href: "/",
-      description: t("aboutUsDescription"),
-    },
-    {
-      title: t("aboutUs"),
-      href: "/",
-      description: t("aboutUsDescription"),
-    },
-    {
-      title: t("products"),
-      description: t("productsDescription"),
-      items: [
-        {
-          title: t("smartOcr"),
-          href: "/",
-        },
-        {
-          title: t("dataExtraction"),
-          href: "/",
-        },
-        {
-          title: t("exportToCsv"),
-          href: "/",
-        },
-        {
-          title: t("invoiceHistory"),
-          href: "/",
-        },
-      ],
-    },
-  ];
+  const navigationItems = useMemo(
+    () => [
+      {
+        title: t("home"),
+        href: "/",
+        description: t("aboutUsDescription"),
+      },
+      {
+        title: t("aboutUs"),
+        href: "/",
+        description: t("aboutUsDescription"),
+      },
+      {
+        title: t("products"),
+        description: t("productsDescription"),
+        items: [
+          { title: t("smartOcr"), href: "/" },
+          { title: t("dataExtraction"), href: "/" },
+          { title: t("exportToCsv"), href: "/" },
+          { title: t("invoiceHistory"), href: "/" },
+        ],
+      },
+    ],
+    [t]
+  );
 
   const [isOpen, setOpen] = useState(false);
   return (
@@ -59,8 +52,8 @@ function Header() {
         <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
           <NavigationMenu className="flex justify-start items-start">
             <NavigationMenuList className="flex justify-start gap-4 flex-row">
-              {navigationItems.map((item) => (
-                <NavigationMenuItem key={item.title}>
+              {navigationItems.map((item, idx) => (
+                <NavigationMenuItem key={item.title + idx}>
                   {item.href ? (
                     <>
                       <NavigationMenuLink asChild>
@@ -88,10 +81,10 @@ function Header() {
                             </Button>
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
-                            {item.items?.map((subItem) => (
+                            {item.items?.map((subItem, subIdx) => (
                               <NavigationMenuLink
                                 href={subItem.href}
-                                key={subItem.title}
+                                key={subItem.title + subIdx}
                                 className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
                               >
                                 <span>{subItem.title}</span>
@@ -136,9 +129,9 @@ function Header() {
                 <div className="container mx-auto py-6 px-4">
                   <div className="flex flex-col gap-6">
                     <LanguageSelect className="w-full" />
-                    {navigationItems.map((item) => (
+                    {navigationItems.map((item, idx) => (
                       <div
-                        key={item.title}
+                        key={item.title + idx}
                         className="border-b border-border/50 pb-4 last:border-b-0"
                       >
                         <div className="flex flex-col gap-3">
@@ -168,9 +161,9 @@ function Header() {
                           )}
                           {item.items && (
                             <div className="pl-0 space-y-2">
-                              {item.items.map((subItem) => (
+                              {item.items.map((subItem, subIdx) => (
                                 <Link
-                                  key={subItem.title}
+                                  key={subItem.title + subIdx}
                                   href={subItem.href}
                                   className="w-full block"
                                   onClick={() => setOpen(false)}
@@ -214,6 +207,8 @@ function Header() {
       </div>
     </header>
   );
-}
+});
+
+Header.displayName = "Header";
 
 export { Header };

@@ -83,63 +83,61 @@ function TextGradientScroll({
 
 export { TextGradientScroll };
 
-const Word = ({ children, progress, range }: WordType) => {
+const Word = React.memo(function Word({ children, progress, range }: WordType) {
   const opacity = useTransform(progress, range, [0, 1]);
-
   return (
     <span className="relative me-2 mt-2">
       <span style={{ position: "absolute", opacity: 0.1 }}>{children}</span>
-      <motion.span style={{ transition: "all .5s", opacity: opacity }}>
+      <motion.span style={{ transition: "all .5s", opacity }}>
         {children}
       </motion.span>
     </span>
   );
-};
+});
+Word.displayName = "Word";
 
-const Letter = ({ children, progress, range }: LetterType) => {
-  if (typeof children === "string") {
-    const amount = range[1] - range[0];
-    const step = amount / children.length;
+const Letter = React.memo(function Letter({
+  children,
+  progress,
+  range,
+}: LetterType) {
+  if (typeof children !== "string") return null;
+  const amount = range[1] - range[0];
+  const step = amount / children.length;
+  return (
+    <span className="relative me-2 mt-2">
+      {children.split("").map((char, i) => (
+        <Char
+          key={i}
+          progress={progress}
+          range={[range[0] + i * step, range[0] + (i + 1) * step]}
+        >
+          {char}
+        </Char>
+      ))}
+    </span>
+  );
+});
+Letter.displayName = "Letter";
 
-    return (
-      <span className="relative me-2 mt-2">
-        {children.split("").map((char: string, i: number) => {
-          const start = range[0] + i * step;
-          const end = range[0] + (i + 1) * step;
-          return (
-            <Char key={`c_${i}`} progress={progress} range={[start, end]}>
-              {char}
-            </Char>
-          );
-        })}
-      </span>
-    );
-  }
-};
-
-const Char = ({ children, progress, range }: CharType) => {
+const Char = React.memo(function Char({ children, progress, range }: CharType) {
   const opacity = useTransform(progress, range, [0, 1]);
   const { textOpacity } = useGradientScroll();
-
   return (
     <span>
       <span
         className={cn("absolute", {
-          "opacity-0": textOpacity == "none",
-          "opacity-10": textOpacity == "soft",
-          "opacity-30": textOpacity == "medium",
+          "opacity-0": textOpacity === "none",
+          "opacity-10": textOpacity === "soft",
+          "opacity-30": textOpacity === "medium",
         })}
       >
         {children}
       </span>
-      <motion.span
-        style={{
-          transition: "all .5s",
-          opacity: opacity,
-        }}
-      >
+      <motion.span style={{ transition: "all .5s", opacity }}>
         {children}
       </motion.span>
     </span>
   );
-};
+});
+Char.displayName = "Char";
