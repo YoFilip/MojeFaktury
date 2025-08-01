@@ -7,7 +7,7 @@ import { Hero } from "@/components/ui/hero";
 import { SliderSection } from "@/components/ui/slider";
 import { TextGradientScroll } from "@/components/ui/scrollText";
 import { Cards } from "@/components/ui/cards";
-
+import { Pricing } from "@/components/pricingCard";
 const Home = React.memo(() => {
   const t = useTranslations("description");
 
@@ -16,7 +16,6 @@ const Home = React.memo(() => {
       <Header />
       <Hero />
       <SliderSection />
-
       <section
         className="w-full py-0 xl:py-30 mb-20"
         aria-labelledby="description-section"
@@ -30,8 +29,14 @@ const Home = React.memo(() => {
           </div>
         </div>
       </section>
-
       <Cards />
+      <section
+        className="w-full py-10 xl:py-30 mb-20"
+        aria-labelledby="pricing-section"
+      >
+        <Pricing />
+      </section>
+      []
     </main>
   );
 });
